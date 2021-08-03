@@ -39,7 +39,7 @@ async def help(ctx):
         embed.add_field(name="Fun", value="`l~help fun`", inline=False)
         embed.add_field(name="Utility", value="`l~help utility`", inline=False)
         embed.add_field(name="Other", value="`l~help other`", inline=False)
-        embed.set_footer(text="Lava 2020")
+        embed.set_footer(text="Lava - Danki")
         await ctx.send(embed=embed)
 
 @help.command()
@@ -52,7 +52,7 @@ async def moderation(ctx):
     embed.add_field(name="Kick", value="`l~kick {user mention}` - *You boot someone in the a***", inline=False)
     embed.add_field(name="Mute", value="`l~mute {user mention}` Silence someone (Required Muted role to be premade)", inline=False)
     embed.add_field(name="Unmute", value="`l~unmute {user mention}` - Un-silence someone (Requires Muted role to be premade)", inline=True)
-    embed.set_footer(text="Lava 2020 - Danki co.")
+    embed.set_footer(text="Lava - Danki")
     await ctx.send(embed=embed)
     
 @help.command()
@@ -69,7 +69,7 @@ async def fun(ctx):
     embed.add_field(name="Say", value="`l~say {argument}` Warning: This only allows one argument", inline=True)
     embed.add_field(name="Lemonrant", value="`l~Lemonrant Image Sends Lemon Rant As A Image", inline=True)
     embed.add_field(name="Lemonrant", value="`l~Lemonrant text Sends Lemon Rant As Text", inline=True)
-    embed.set_footer(text="Lava 2020")
+    embed.set_footer(text="Lava - Danki")
     await ctx.send(embed=embed)
     
 @help.command()
@@ -81,7 +81,7 @@ async def utility(ctx):
     embed.add_field(name="Server Name", value="`l~server`", inline=False)
     embed.add_field(name="Server Owner", value="`l~server owner`", inline=False)
     embed.add_field(name="Name", value="`l~name {name}`", inline=False)
-    embed.set_footer(text="Lava 2020")
+    embed.set_footer(text="Lava - Danki")
     await ctx.send(embed=embed)
     
 @help.command()
@@ -93,7 +93,7 @@ async def other(ctx):
     embed.add_field(name="Credits", value="`.credits` - Credits of the bot. Bot owner and who supplied the source code.", inline=False)
     embed.add_field(name="Ping", value="`l~ping` - The Bots Ping.", inline=False)
     embed.add_field(name="Server Owner", value="`l~website` - The Website! (finally got one!)", inline=False)
-    embed.set_footer(text="Lava 2020")
+    embed.set_footer(text="Lava - Danki")
     await ctx.send(embed=embed)
     
 @client.group()
@@ -137,15 +137,6 @@ async def image(ctx):
         embed.set_image(url="https://static-cse.canva.com/blob/133600/10.23129d32.jpg")
         await ctx.send(embed=embed)
 
-@image.command()
-async def pokemon(ctx):
-    choices = ["https://compote.slate.com/images/18ba92e4-e39b-44a3-af3b-88f735703fa7.png?width=780&height=520&rect=1560x1040&offset=0x0", "https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-switch/e/ea/Grookey.jpg"]
-    embed = discord.Embed(
-        color = discord.Colour.purple())
-    embed.set_author(name='Here is your Pokémon image!')
-    embed.set_image(url=random.choice(choices))
-    await ctx.send(embed=embed)
-    
     
 @client.command()
 async def lrtext(ctx):
@@ -167,7 +158,7 @@ async def kick(ctx, member:discord.Member = None):
 @kick.error
 async def kick_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
-        await ctx.send("You are not allowed to kick people. If this is a mistake, please DM ^~(◔◡◔) ♥ Danki_RAWR.exe ♥~^#0316")
+        await ctx.send("You are not allowed to kick people.")
 
 @client.command()
 @commands.has_permissions(administrator=True)
@@ -180,7 +171,7 @@ async def ban(ctx, member:discord.Member = None):
 @ban.error
 async def kick_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
-        await ctx.send("You are not allowed to ban people. If this is a mistake, please DM ^~(◔◡◔) ♥ Danki_RAWR.exe ♥~^#0316")
+        await ctx.send("You are not allowed to ban people. ")
         
 @client.command()
 async def hug(ctx, member:discord.Member = None):
@@ -209,7 +200,7 @@ async def mute(ctx, member: discord.Member=None):
 @mute.error
 async def mute_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
-        await ctx.send("You are not allowed to mute people. If this is a mistake, please DM ^~(◔◡◔) ♥ Danki_RAWR.exe ♥~^#0316")
+        await ctx.send("You are not allowed to mute people.")
 
 @client.command()
 @commands.has_permissions(administrator=True)
@@ -222,7 +213,7 @@ async def unmute(ctx, member: discord.Member=None):
 @mute.error
 async def unmute_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
-        await ctx.send("You are not allowed to unmute people. If this is a mistake, please DM ^~(◔◡◔) ♥ Danki_RAWR.exe ♥~^#0316")
+        await ctx.send("You are not allowed to unmute people.")
 
 @client.event
 async def on_member_join(member):
@@ -244,15 +235,15 @@ async def update(ctx):
     
 @client.command()
 async def credits(ctx):
-    await ctx.send(f'__**Bot Developer**__\n\n^~(◔◡◔) ♥ Danki_RAWR.exe ♥~^#0316')
+    await ctx.send(f'__**Bot Developer**__\n\n Danki')
 
 @client.command()
 async def website(ctx):
-    await ctx.send(f'__Website__\n\nhttps://lavabotdeveloper.github.io/LavaDevWebsite/')
+    await ctx.send(f'__Website__\n\n Not avaliabe yet')
 
 @client.command()
 async def support(ctx):
-    await ctx.send(f'__Support Discord__\n\nhttps://discord.gg/qP7cSde')
+    await ctx.send(f'__Support Discord__\n\n None')
 
 
 @image.command(pass_context=True)
